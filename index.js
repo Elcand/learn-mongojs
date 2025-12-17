@@ -23,37 +23,45 @@ const movie = new Movie({
   director: "Frank Darabont",
 }).save();
 
-Movie.insertMany([
-  {
-    title: "The Godfather",
-    year: 1972,
-    score: 9.2,
-    director: "Francis Ford Coppola",
-  },
-  {
-    title: "The Dark Knight",
-    year: 2008,
-    score: 9,
-    director: "Christopher Nolan",
-  },
-  {
-    title: "Inception",
-    year: 2010,
-    score: 8.8,
-    director: "Christopher Nolan",
-  },
-  {
-    title: "Interstellar",
-    year: 2014,
-    score: 8.6,
-    director: "Christopher Nolan",
-  },
-])
-  .then(() => {
-    console.log("Data inserted successfully");
+// Movie.insertMany([
+//   {
+//     title: "The Godfather",
+//     year: 1972,
+//     score: 9.2,
+//     director: "Francis Ford Coppola",
+//   },
+//   {
+//     title: "The Dark Knight",
+//     year: 2008,
+//     score: 9,
+//     director: "Christopher Nolan",
+//   },
+//   {
+//     title: "Inception",
+//     year: 2010,
+//     score: 8.8,
+//     director: "Christopher Nolan",
+//   },
+//   {
+//     title: "Interstellar",
+//     year: 2014,
+//     score: 8.6,
+//     director: "Christopher Nolan",
+//   },
+// ])
+//   .then(() => {
+//     console.log("Data inserted successfully");
+//   })
+//   .catch((error) => {
+//     console.error("Error inserting data:", error);
+//   });
+
+Movie.deleteOne({ title: "The Dark Knight" })
+  .then((result) => {
+    console.log(result);
   })
   .catch((error) => {
-    console.error("Error inserting data:", error);
+    console.error("Error deleting movie:", error);
   });
 
 console.log(movie);
